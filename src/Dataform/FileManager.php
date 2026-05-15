@@ -24,6 +24,7 @@ trait FileManager
 
         $fileName = str_replace('#', "-", $file->getClientOriginalName());
         $fileName = str_replace('/', "-", $fileName);
+        $fileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
         $uploadFile = $destinationPath . $fileName;
 
         $i = 0;
