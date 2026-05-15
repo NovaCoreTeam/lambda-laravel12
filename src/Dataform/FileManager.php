@@ -24,6 +24,11 @@ trait FileManager
 
         $fileName = str_replace('#', "-", $file->getClientOriginalName());
         $fileName = str_replace('/', "-", $fileName);
+
+        if ($file_type == 'images') {
+            $fileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
+        }
+
         $uploadFile = $destinationPath . $fileName;
 
         $i = 0;
@@ -33,7 +38,6 @@ trait FileManager
         }
 
         if ($file_type == 'images') {
-            $fileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
             $thumbPath = $destinationPath . DIRECTORY_SEPARATOR . 'thumb' . DIRECTORY_SEPARATOR;
             if (!is_dir($thumbPath)) {
                 mkdir($thumbPath, 0755, true);
@@ -46,12 +50,12 @@ trait FileManager
                     $constraint->aspectRatio();
                 });
             }
-            $uploadSuccess->format('webp')->save($destinationPath . $fileName, $config['img_quality']);
+            $uploadSuccess->encode('webp', $config['img_quality'])->save($destinationPath . $fileName);
 
             $thumb_image = $uploadSuccess->resize($config['img_thumb_width'], null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $thumb_image->format('webp')->save($thumbPath . $fileName, $config['img_quality']);
+            $thumb_image->encode('webp', $config['img_quality'])->save($thumbPath . $fileName);
         } else {
             $file->move($destinationPath, $fileName);
         }
