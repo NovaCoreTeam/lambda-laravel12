@@ -24,7 +24,6 @@ trait FileManager
 
         $fileName = str_replace('#', "-", $file->getClientOriginalName());
         $fileName = str_replace('/', "-", $fileName);
-        $fileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
         $uploadFile = $destinationPath . $fileName;
 
         $i = 0;
@@ -34,6 +33,7 @@ trait FileManager
         }
 
         if ($file_type == 'images') {
+            $fileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
             $thumbPath = $destinationPath . DIRECTORY_SEPARATOR . 'thumb' . DIRECTORY_SEPARATOR;
             if (!is_dir($thumbPath)) {
                 mkdir($thumbPath, 0755, true);
