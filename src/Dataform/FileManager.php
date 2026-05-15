@@ -51,7 +51,7 @@ trait FileManager
             $thumb_image = $uploadSuccess->resize($config['img_thumb_width'], null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $thumb_image->save($thumbPath . $fileName);
+            $thumb_image->format('webp')->save($thumbPath . $fileName);
         } else {
             $file->move($destinationPath, $fileName);
         }
