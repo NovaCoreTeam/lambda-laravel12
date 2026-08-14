@@ -1,4 +1,4 @@
-@extends('template::paper', ['title' => 'Лямбда платформ'])
+@extends('template::paper', ['title' => 'Тэнцвэртэй эцэг эх - CMS'])
 
 @push('styles')
     <link rel="stylesheet" href="/assets/lambda/fonts/flaticons/flaticons.css">
@@ -27,6 +27,23 @@
     <script type="text/javascript" src="/vendor/echart/echarts-en.js"></script>
     <script type="text/javascript" src="/vendor/ckeditor/ckeditor.js"></script>
     <script src="/vendor/ol/ol.js"></script>
+    {{-- Old CoffeeScript-generated UMD bundle with a labeled-function-statement syntax error under
+    ES module strict mode — can't be imported/bundled by Rollup like datasource.js's other deps, so
+    it loads as a classic script and sets window.SQLParser itself. --}}
+    <script src="/vendor/sql-parser/sql-parser.js"></script>
+    {{-- jquery-extendext, jQuery-QueryBuilder, and its locale file all detect their environment via
+    `typeof module === 'object' && module.exports` and otherwise fall back to `factory(root.jQuery)`
+    where root is the UMD wrapper's own `this` — that's `window` in a classic script, but `undefined`
+    in an ES module, and Rollup's CJS/ESM interop for these specific files doesn't reliably take the
+    module.exports branch either (jquery-extendext also vendors its own separate nested copy of
+    jquery, which the datasource.js bundle's own jquery import doesn't share — see vite.config.js).
+    Loading this whole family as classic scripts, in dependency order, is what actually keeps a
+    single shared window.jQuery instance flowing through jQuery -> extendext -> query-builder -> its
+    locale file, matching how they were designed to be loaded before any bundler was in the picture. --}}
+    <script src="/vendor/jquery-legacy/jquery.js"></script>
+    <script src="/vendor/jquery-legacy/jquery-extendext.js"></script>
+    <script src="/vendor/jquery-legacy/query-builder.js"></script>
+    <script src="/vendor/jquery-legacy/queryBuilder.i18.mn.js"></script>
     <script>
         window.init = {
             user: {!! json_encode(auth()->user()) !!},
@@ -40,20 +57,19 @@
         window.lambda = {!! json_encode(config('lambda')) !!};
     </script>
 
-    <script src="{{ mix('assets/lambda/js/moqup.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/dataform.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/dataform-builder.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/moqup.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/dataform.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/dataform-builder.js') }}"></script>
 
-    <script src="{{ mix('assets/lambda/js/datagrid-vendor.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/datagrid.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/datagrid-builder.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datagrid.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datagrid-builder.js') }}"></script>
 
     {{--    <script src="{{ mix('assets/lambda/js/report.js') }}"></script>--}}
     {{--    <script src="{{ mix('assets/lambda/js/report-builder.js') }}"></script>--}}
 
-    <script src="{{ mix('assets/lambda/js/datasource.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/krud.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/agent.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datasource.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/krud.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/agent.js') }}"></script>
 {{--    <script src="{{ mix('assets/lambda/js/notification.js') }}"></script>--}}
-    <script src="{{ mix('assets/lambda/js/puzzle.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/puzzle.js') }}"></script>
 @endpush

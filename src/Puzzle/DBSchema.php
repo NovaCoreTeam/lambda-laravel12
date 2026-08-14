@@ -30,7 +30,7 @@ trait DBSchema
         } else if (env('DB_CONNECTION') == 'pgsql') {
             $ignore_tables = ['information_schema'];
             $ignore_schemas = ["'information_schema'", "'pg_catalog'"];
-            $databaseName = env('DB_DATABASE', 'lambda_db');
+            $databaseName = config('database.connections.' . config('database.default') . '.database', 'lambda_db');
 
             $qrStr = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema <> all(ARRAY[" . join(",", $ignore_schemas) . "]) ORDER BY TABLE_NAME";
             $tables = DB::select(DB::raw($qrStr));
@@ -56,7 +56,7 @@ trait DBSchema
             }
         } else {
             $tables = DB::select('SHOW FULL TABLES');
-            $databaseName = env('DB_DATABASE', 'lambda_db');
+            $databaseName = config('database.connections.' . config('database.default') . '.database', 'lambda_db');
 
             foreach ($tables as $t) {
                 $key = "Tables_in_$databaseName";

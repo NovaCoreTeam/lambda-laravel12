@@ -54,7 +54,7 @@ class AuthController extends Controller
                 if (!$user) {
                     return response()->json(['status' => false, 'error' => 'User Not found'], 401);
                 }
-                if ($user->is_active == null || $user->is_active == 0) {
+                if (empty($user->status) || $user->status === 'inactive') {
                     return response()->json(['status' => false, 'error' => 'Хэрэглэгч баталгаажаагүй байна'], 401);
                 }
             }

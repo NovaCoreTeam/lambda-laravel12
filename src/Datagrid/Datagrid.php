@@ -183,8 +183,18 @@ class Datagrid extends Facade
 
         $this->customFilter();
 
+        // Reserved query params consumed by the grid engine itself (pagination/sort/search).
+        // A data column sharing one of these names (e.g. a "page" column) must never be
+        // treated as a side-filter, or the engine's own paginate()/sort() params silently
+        // zero out the result set.
+        $reservedParams = ['page', 'paginate', 'sort', 'order', 'search'];
+
 //        dd('... filter');
         foreach ($this->schema as $s) {
+            if (in_array($s->model, $reservedParams, true)) {
+                continue;
+            }
+
             if ($s->filterable && request()->get($s->model) != null && request()->get($s->model) != '') {
 
                 //Side filter

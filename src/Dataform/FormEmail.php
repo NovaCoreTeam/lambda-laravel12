@@ -35,9 +35,9 @@ trait FormEmail
     public function sendEmailNormal($data,$schema)
     {
         Log::debug('EMAIL - SEND EMAIL NORMAL LAMBDA FUNCTION: ' . Carbon::now());
-        Log::debug('EMAIL - DATA: ' . json_encode($schema->email));
 
         if (isset($schema->email) && count($schema->email->to) > 0 && $schema->email->subject) {
+            Log::debug('EMAIL - DATA: ' . json_encode($schema->email));
 
 
             $config = null;
