@@ -25,7 +25,6 @@
     }
   },
   "require": {
-    "lcobucci/jwt": "^4.1.5",
     "tymon/jwt-auth": "^2.3",
     "intervention/image": "^2.5.1",
     "maatwebsite/excel": "^3.1",
