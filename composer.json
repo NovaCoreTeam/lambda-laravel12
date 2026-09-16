@@ -31,8 +31,5 @@
     "maatwebsite/excel": "^3.1",
     "barryvdh/laravel-dompdf": "^3.1",
     "rap2hpoutre/fast-excel": "^5.11"
-  },
-  "replace": {
-    "lcobucci/jwt": "*"
   }
 }
