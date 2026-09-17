@@ -13,8 +13,6 @@
         <directory name="src" />
         <ignoreFiles>
             <directory name="vendor" />
-            <file name="src/Puzzle/Models/Permission.php" />
-            <file name="src/Puzzle/Models/Role.php" />
         </ignoreFiles>
     </projectFiles>
     <stubs>

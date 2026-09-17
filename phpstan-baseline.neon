@@ -337,6 +337,12 @@ parameters:
 			path: src/Puzzle/Controllers/RolesController.php
 
 		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Lambda\\Agent\\Models\\User, \$this\(Lambda\\Puzzle\\Models\\Role\)\>\:\:withTrashed\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Models/Role.php
+
+		-
 			message: '#^Call to an undefined method Illuminate\\Database\\Connection\:\:getMongoClient\(\)\.$#'
 			identifier: method.notFound
 			count: 1
