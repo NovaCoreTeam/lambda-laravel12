@@ -55,6 +55,12 @@ class PuzzleController extends Controller
 
         $file = $this->sanitizeFileName($_POST['file']);
 
+        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) !== 'html') {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request', true, 400);
+            echo "Only .html files can be saved";
+            return;
+        }
+
         if (file_put_contents($file, $html)) {
             echo "<strong>Амжилттай хадгалагдлаа</strong> <br/> $file";
         } else {
@@ -74,7 +80,7 @@ class PuzzleController extends Controller
 
     public function dbSchema($table = false)
     {
-        return $table == false ? VB::tables() : VB::tableMeta($table);
+        return $table == false ? Puzzle::tables() : Puzzle::tableMeta($table);
     }
 
     //Chart function
@@ -201,6 +207,10 @@ class PuzzleController extends Controller
 
     public function deleteVB($table, $type, $id)
     {
+        if (!in_array($table, ['vb_schemas', 'vb_schemas_admin'], true)) {
+            return response()->json(['status' => false, 'message' => 'Invalid table'], 400);
+        }
+
         $this->beforeAction('delete', ['type' => $type], $id);
         $r = DB::table($table)->delete($id);
         if ($r) {

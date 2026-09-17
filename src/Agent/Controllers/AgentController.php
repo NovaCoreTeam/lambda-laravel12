@@ -95,7 +95,7 @@ class AgentController extends Controller
 
         $r = DB::table('users')
             ->where('deleted_at', null)
-            ->whereRaw('lower(CONCAT_WS(\' \',login,first_name,last_name,phone)) like lower(\'%' . $q . '%\')')
+            ->whereRaw('lower(CONCAT_WS(\' \',login,first_name,last_name,phone)) like lower(?)', ['%' . $q . '%'])
             ->paginate(18);
 
         if ($r) {

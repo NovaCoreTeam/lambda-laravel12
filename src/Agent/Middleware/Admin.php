@@ -3,8 +3,6 @@
 namespace Lambda\Agent\Middleware;
 
 use Closure;
-use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
 
 class Admin
 {
@@ -18,7 +16,6 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        config()->set('jwt.user', " Lambda\Agent\Models\User");
         config()->set('auth.providers.users.model', \Lambda\Agent\Models\User::class);
         return $next($request);
     }

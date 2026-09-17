@@ -19,6 +19,10 @@ use Exception;
  */
 class Uuid
 {
+    protected $bytes;
+    protected $string;
+    protected $uuid_ordered;
+
     const MD5 = 3;
     const SHA1 = 5;
     /**
