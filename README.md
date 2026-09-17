@@ -1,1 +1,1 @@
-# Lambda Platform Laravel
+# Lambda Platform Laravel12, laravel package

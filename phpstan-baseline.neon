@@ -1,0 +1,409 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$direction\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Agent/Controllers/AgentController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Agent/Controllers/AgentController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$sort\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Agent/Controllers/AgentController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:getToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:logout\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:refresh\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:user\(\)\.$#'
+			identifier: method.notFound
+			count: 5
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Guard\:\:attempt\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method Lambda\\Agent\\Controllers\\AuthController\:\:respondWithToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:factory\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Agent/Controllers/AuthController.php
+
+		-
+			message: '#^Call to static method input\(\) on an unknown class Request\.$#'
+			identifier: class.notFound
+			count: 7
+			path: src/Agent/Controllers/PasswordController.php
+
+		-
+			message: '#^Call to static method send\(\) on an unknown class Mail\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Agent/Controllers/PasswordController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:user\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/Agent/Middleware/JWT.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:getToken\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Agent/Middleware/JWT.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:refresh\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Agent/Middleware/JWT.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:setToken\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 2
+			path: src/Agent/Middleware/JWT.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:getToken\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Agent/Middleware/JWTClient.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:refresh\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Agent/Middleware/JWTClient.php
+
+		-
+			message: '#^Call to an undefined static method Tymon\\JWTAuth\\Facades\\JWTAuth\:\:setToken\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 2
+			path: src/Agent/Middleware/JWTClient.php
+
+		-
+			message: '#^Constructor of class Lambda\\Dataform\\Compress has an unused parameter \$pngQuality\.$#'
+			identifier: constructor.unusedParameter
+			count: 1
+			path: src/Dataform/Compress.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$fields\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$key\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$parentFieldOfTable\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$table\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:id\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:user\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to static method make\(\) on an unknown class Validator\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to static method make\(\) on an unknown class View\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to static method parseToken\(\) on an unknown class JWTAuth\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to static method send\(\) on an unknown class Mail\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Call to static method user\(\) on an unknown class Auth\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Method Lambda\\Dataform\\Dataform\:\:getFormSubTables\(\) invoked with 2 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Variable \$labels might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: src/Dataform/Dataform.php
+
+		-
+			message: '#^Access to an undefined property Lambda\\Dataform\\FormJob\:\:\$dbSchema\.$#'
+			identifier: property.notFound
+			count: 16
+			path: src/Dataform/FormJob.php
+
+		-
+			message: '#^Call to static method make\(\) on an unknown class View\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/FormJob.php
+
+		-
+			message: '#^Call to static method send\(\) on an unknown class Mail\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Dataform/FormJob.php
+
+		-
+			message: '#^Class Lambda\\Dataform\\Uuid referenced with incorrect case\: Lambda\\Dataform\\uuid\.$#'
+			identifier: class.nameCase
+			count: 1
+			path: src/Dataform/Uuid.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Dataform/Uuid.php
+
+		-
+			message: '#^Call to static method user\(\) on an unknown class Auth\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Datagrid/Datagrid.php
+
+		-
+			message: '#^Method Lambda\\Datagrid\\Datagrid\:\:updateRow\(\) invoked with 1 parameter, 0 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Datagrid/Datagrid.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:id\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/Notify/Controllers/NotifyController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:id\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Notify/Notify.php
+
+		-
+			message: '#^Call to static method all\(\) on an unknown class Lambda\\Agent\\Models\\Menu\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Puzzle/Controllers/MenuController.php
+
+		-
+			message: '#^Call to static method create\(\) on an unknown class Lambda\\Agent\\Models\\MenuItem\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Puzzle/Controllers/MenuController.php
+
+		-
+			message: '#^Call to static method findOrFail\(\) on an unknown class Lambda\\Agent\\Models\\Menu\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Puzzle/Controllers/MenuController.php
+
+		-
+			message: '#^Call to static method findOrFail\(\) on an unknown class Lambda\\Agent\\Models\\MenuItem\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Puzzle/Controllers/MenuController.php
+
+		-
+			message: '#^Call to static method highestOrderMenuItem\(\) on an unknown class Lambda\\Agent\\Models\\MenuItem\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Puzzle/Controllers/MenuController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Puzzle/Controllers/PuzzleController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$relations\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Puzzle/Controllers/PuzzleController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$schema\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Puzzle/Controllers/PuzzleController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Authenticatable\:\:toArray\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Controllers/PuzzleController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<Lambda\\Puzzle\\Models\\Role\>\:\:SearchPaginateAndOrder\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Controllers/RolesController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<Lambda\\Puzzle\\Models\\Role\>\:\:restore\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Controllers/RolesController.php
+
+		-
+			message: '#^Call to an undefined static method Lambda\\Puzzle\\Models\\Role\:\:SearchPaginateAndOrder\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Puzzle/Controllers/RolesController.php
+
+		-
+			message: '#^Call to an undefined static method Lambda\\Puzzle\\Models\\Role\:\:create\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Puzzle/Controllers/RolesController.php
+
+		-
+			message: '#^Call to an undefined static method Lambda\\Puzzle\\Models\\Role\:\:find\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 2
+			path: src/Puzzle/Controllers/RolesController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Relations\\HasMany\<Lambda\\Agent\\Models\\User, \$this\(Lambda\\Puzzle\\Models\\Role\)\>\:\:withTrashed\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Models/Role.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Connection\:\:getMongoClient\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Puzzle.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Connection\:\:getMongoDB\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Puzzle/Puzzle.php
+
+		-
+			message: '#^Call to an undefined static method DB\:\:collection\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Puzzle/Puzzle.php
+
+		-
+			message: '#^Access to an undefined property Lambda\\Puzzle\\Requests\\MenuRequest\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Puzzle/Requests/MenuRequest.php
+
+		-
+			message: '#^Method Lambda\\Puzzle\\Requests\\MenuRequest\:\:rules\(\) should return array but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Puzzle/Requests/MenuRequest.php
+
+		-
+			message: '#^Access to an undefined property Lambda\\Puzzle\\Requests\\PageRequest\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Puzzle/Requests/PageRequest.php
+
+		-
+			message: '#^Method Lambda\\Puzzle\\Requests\\PageRequest\:\:rules\(\) should return array but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Puzzle/Requests/PageRequest.php
+
+		-
+			message: '#^Access to an undefined property Lambda\\Puzzle\\Requests\\PermissionRequest\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Puzzle/Requests/PermissionRequest.php
+
+		-
+			message: '#^Method Lambda\\Puzzle\\Requests\\PermissionRequest\:\:rules\(\) should return array but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Puzzle/Requests/PermissionRequest.php
+
+		-
+			message: '#^Access to an undefined property Lambda\\Puzzle\\Requests\\RoleRequest\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Puzzle/Requests/RoleRequest.php
+
+		-
+			message: '#^Method Lambda\\Puzzle\\Requests\\RoleRequest\:\:rules\(\) should return array but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Puzzle/Requests/RoleRequest.php

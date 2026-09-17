@@ -10,6 +10,8 @@ use Lambda\Agent\Helper\DataViewer;
 class Role extends Model
 {
     use SoftDeletes;
+    use DataViewer;
+
     protected $table = 'roles';
     protected $fillable = ['name', 'display_name', 'description', 'permissions', 'type'];
     public static $columns = ['id', 'name', 'display_name', 'description', 'permissions', 'created_at', 'updated_at', 'deleted_at', 'type'];
