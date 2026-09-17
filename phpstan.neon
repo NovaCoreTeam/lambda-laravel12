@@ -1,0 +1,18 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 2
+    paths:
+        - src
+    excludePaths:
+        analyseAndScan:
+            - src/*/Views/*
+            # Both reference a missing Lambda\Agent\Helper\DataViewer trait
+            # (a genuine pre-existing bug, not a PHPStan config gap) which
+            # makes these two classes unanalysable until it's restored.
+            - src/Puzzle/Models/Permission.php
+            - src/Puzzle/Models/Role.php
+    scanFiles:
+        - stubs/HostAppController.php
+        - stubs/GlobalFacadeAliases.php

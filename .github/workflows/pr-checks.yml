@@ -28,5 +28,14 @@ jobs:
       - name: PHP syntax lint
         run: find src -name '*.php' -print0 | xargs -0 -n1 -P4 php -l
 
-      - name: Security audit
+      - name: Security audit (dependency CVEs)
         run: composer audit
+
+      - name: Static analysis (PHPStan)
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+
+      - name: Code review (Psalm)
+        run: vendor/bin/psalm --no-progress --stats
+
+      - name: Security scan (Psalm taint analysis)
+        run: vendor/bin/psalm --no-progress --taint-analysis
