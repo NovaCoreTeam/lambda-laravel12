@@ -5,9 +5,6 @@ namespace Lambda\Notify;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
-use ElephantIO\Client;
-use ElephantIO\Engine\SocketIO\Version2X;
-use Twilio\TwiML\Fax\Receive;
 
 class Notify extends Facade
 {
@@ -100,7 +97,7 @@ class Notify extends Facade
 
         $headers =
             [
-                'Authorization: key=AIzaSyDPHOFFQy7fWC14Vncn7sC7o0mEztpXzE4',
+                'Authorization: key=' . config('services.fcm.key', env('FCM_SERVER_KEY', 'AIzaSyDPHOFFQy7fWC14Vncn7sC7o0mEztpXzE4')),
                 'Content-Type: application/json'
             ];
 
@@ -111,7 +108,7 @@ class Notify extends Facade
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         $result = curl_exec($ch);
         curl_close($ch);

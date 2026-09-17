@@ -9,6 +9,8 @@ trait Utils
     //For specific ID
     public function setID()
     {
+        $subForms = [];
+        $models = [];
         foreach ($this->schema as $s) {
             // Sub forms
             if ($s->formType == 'SubForm') {

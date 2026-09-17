@@ -83,6 +83,15 @@ trait DBSchema
     public static function tableMeta($table)
     {
         $data = [];
+
+        $isValidIdentifier = env('DB_CONNECTION') == 'pgsql'
+            ? preg_match('/^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)?$/', $table)
+            : preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $table);
+
+        if (!$isValidIdentifier) {
+            return $data;
+        }
+
         try {
             if (env('DB_CONNECTION') == 'sqlsrv') {
                 $dataname = env('DB_DATABASE');
@@ -161,7 +170,7 @@ trait DBSchema
 
             $data = DB::select("show fields from $table");
         } catch (\Exception $e) {
-            dd($e);
+            \Illuminate\Support\Facades\Log::error($e);
         }
 
         if ($data) {

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Lambda\Agent\Models\Menu;
 use Lambda\Agent\Models\MenuItem;
-use TCG\Voyager\Facades\Voyager;
 
 class MenuController extends Controller
 {
@@ -137,7 +136,7 @@ class MenuController extends Controller
 
     protected function prepareParameters($parameters)
     {
-        switch (array_get($parameters, 'type')) {
+        switch ($parameters['type'] ?? null) {
             case 'route':
                 $parameters['url'] = null;
                 break;

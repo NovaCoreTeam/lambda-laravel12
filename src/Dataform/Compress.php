@@ -1,5 +1,8 @@
 <?php
 namespace Lambda\Dataform;
+
+use Exception;
+
 class Compress {
 
     // @var file_url
