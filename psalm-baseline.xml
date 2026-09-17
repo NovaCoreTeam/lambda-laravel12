@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.17.2@dd625545733d24633e5d386a26c13004dae80e19">
+  <file src="src/Agent/Controllers/AgentController.php">
+    <TooManyArguments>
+      <code><![CDATA[select]]></code>
+    </TooManyArguments>
+    <UndefinedMagicPropertyFetch>
+      <code><![CDATA[request()->direction]]></code>
+      <code><![CDATA[request()->direction]]></code>
+      <code><![CDATA[request()->role]]></code>
+      <code><![CDATA[request()->role]]></code>
+      <code><![CDATA[request()->sort]]></code>
+      <code><![CDATA[request()->sort]]></code>
+    </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/Agent/Controllers/AuthController.php">
+    <TooManyArguments>
+      <code><![CDATA[withCookie]]></code>
+    </TooManyArguments>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[attempt]]></code>
+      <code><![CDATA[getToken]]></code>
+      <code><![CDATA[logout]]></code>
+      <code><![CDATA[refresh]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+    </UndefinedInterfaceMethod>
+    <UndefinedMagicMethod>
+      <code><![CDATA[JWTAuth::factory()]]></code>
+      <code><![CDATA[respondWithToken]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Agent/Controllers/PasswordController.php">
+    <UndefinedClass>
+      <code><![CDATA[Request]]></code>
+      <code><![CDATA[Request]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Agent/Middleware/JWT.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+    </UndefinedInterfaceMethod>
+    <UndefinedMagicMethod>
+      <code><![CDATA[JWTAuth::getToken()]]></code>
+      <code><![CDATA[JWTAuth::refresh(JWTAuth::getToken())]]></code>
+      <code><![CDATA[JWTAuth::setToken($refreshed)]]></code>
+      <code><![CDATA[JWTAuth::setToken($token)]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Agent/Middleware/JWTClient.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[JWTAuth::getToken()]]></code>
+      <code><![CDATA[JWTAuth::refresh(JWTAuth::getToken())]]></code>
+      <code><![CDATA[JWTAuth::setToken($refreshed)]]></code>
+      <code><![CDATA[JWTAuth::setToken($token)]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Agent/Models/Customer.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getJWTCustomClaims()]]></code>
+      <code><![CDATA[public function getJWTIdentifier()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Agent/Models/User.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getJWTCustomClaims()]]></code>
+      <code><![CDATA[public function getJWTIdentifier()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Dataform/Compress.php">
+    <InvalidReturnStatement>
+      <code><![CDATA[$ex->getMessage()]]></code>
+    </InvalidReturnStatement>
+  </file>
+  <file src="src/Dataform/CustomUtils.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+      <code><![CDATA[user]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Dataform/Dataform.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Carbon::now()]]></code>
+    </ImplicitToStringCast>
+    <TooManyArguments>
+      <code><![CDATA[getFormSubTables]]></code>
+    </TooManyArguments>
+    <UndefinedClass>
+      <code><![CDATA[Auth]]></code>
+    </UndefinedClass>
+    <UndefinedMagicPropertyFetch>
+      <code><![CDATA[request()->fields]]></code>
+      <code><![CDATA[request()->key]]></code>
+      <code><![CDATA[request()->table]]></code>
+    </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/Dataform/FormEmail.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[$e]]></code>
+      <code><![CDATA[Carbon::now()]]></code>
+    </ImplicitToStringCast>
+    <InvalidArgument>
+      <code><![CDATA[$pdfData]]></code>
+    </InvalidArgument>
+    <InvalidOperand>
+      <code><![CDATA[isset($schema->email)]]></code>
+      <code><![CDATA[isset($schema->email->has_custom_trigger)]]></code>
+    </InvalidOperand>
+    <UndefinedClass>
+      <code><![CDATA[Mail]]></code>
+      <code><![CDATA[\View]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Dataform/Utils.php">
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->dbSchema]]></code>
+      <code><![CDATA[$this->dbSchema]]></code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/Dataform/Uuid.php">
+    <FalsableReturnStatement>
+      <code><![CDATA[false]]></code>
+    </FalsableReturnStatement>
+    <ImplicitToStringCast>
+      <code><![CDATA[$uuid]]></code>
+    </ImplicitToStringCast>
+    <InvalidClass>
+      <code><![CDATA[uuid]]></code>
+    </InvalidClass>
+    <InvalidOperand>
+      <code><![CDATA[microtime(1) * 10000000]]></code>
+    </InvalidOperand>
+    <InvalidReturnStatement>
+      <code><![CDATA[$this->uuid_ordered]]></code>
+      <code><![CDATA[(hexdec($time) - static::INTERVAL) / 10000000]]></code>
+      <code><![CDATA[0]]></code>
+      <code><![CDATA[1]]></code>
+      <code><![CDATA[2]]></code>
+      <code><![CDATA[3]]></code>
+      <code><![CDATA[ord($this->bytes[6]) >> 4]]></code>
+      <code><![CDATA[true]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[string|string]]></code>
+      <code><![CDATA[string|string|number|number|number|number|number|null|number|null|null]]></code>
+      <code><![CDATA[uuid]]></code>
+    </InvalidReturnType>
+    <InvalidScalarArgument>
+      <code><![CDATA[1]]></code>
+      <code><![CDATA[1]]></code>
+      <code><![CDATA[1]]></code>
+    </InvalidScalarArgument>
+    <UndefinedDocblockClass>
+      <code><![CDATA[string|string|number|number|number|number|number|null|number|null|null]]></code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/Dataform/Validate.php">
+    <UndefinedClass>
+      <code><![CDATA[JWTAuth]]></code>
+      <code><![CDATA[Validator]]></code>
+    </UndefinedClass>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[id]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Datagrid/Datagrid.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Carbon::today()]]></code>
+    </ImplicitToStringCast>
+    <RedundantCondition>
+      <code><![CDATA[isset($c_condition['value']) && $c_condition['value'] && $c_condition['value'] != null]]></code>
+      <code><![CDATA[isset($c_condition['value']) && $c_condition['value'] && $c_condition['value'] != null && $c_condition['value'] != "undefined"]]></code>
+    </RedundantCondition>
+    <TooManyArguments>
+      <code><![CDATA[updateRow]]></code>
+    </TooManyArguments>
+    <UndefinedClass>
+      <code><![CDATA[Auth]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Datagrid/ExportExcel.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function collection()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Lambda.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected static function getFacadeAccessor()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/LambdaServiceProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function register()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Notify/Controllers/NotifyController.php">
+    <InvalidArgument>
+      <code><![CDATA['50']]></code>
+    </InvalidArgument>
+    <TooManyArguments>
+      <code><![CDATA[select]]></code>
+    </TooManyArguments>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[id]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Notify/Notify.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected static function getFacadeAccessor()]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[id]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Puzzle/Controllers/MenuController.php">
+    <UndefinedClass>
+      <code><![CDATA[Menu]]></code>
+      <code><![CDATA[Menu]]></code>
+      <code><![CDATA[MenuItem]]></code>
+      <code><![CDATA[MenuItem]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Puzzle/Controllers/PuzzleController.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[toArray]]></code>
+    </UndefinedInterfaceMethod>
+    <UndefinedMagicPropertyFetch>
+      <code><![CDATA[$data->schema]]></code>
+      <code><![CDATA[request()->name]]></code>
+      <code><![CDATA[request()->relations]]></code>
+      <code><![CDATA[request()->schema]]></code>
+    </UndefinedMagicPropertyFetch>
+    <UndefinedPropertyAssignment>
+      <code><![CDATA[$data->schema]]></code>
+    </UndefinedPropertyAssignment>
+  </file>
+  <file src="src/Puzzle/Controllers/RolesController.php">
+    <RedundantCondition>
+      <code><![CDATA[$deletedRoles]]></code>
+      <code><![CDATA[$roles]]></code>
+    </RedundantCondition>
+    <UndefinedMagicMethod>
+      <code><![CDATA[Role::SearchPaginateAndOrder()]]></code>
+      <code><![CDATA[Role::create($data)]]></code>
+      <code><![CDATA[Role::find($id)]]></code>
+      <code><![CDATA[Role::find($id)]]></code>
+      <code><![CDATA[SearchPaginateAndOrder]]></code>
+      <code><![CDATA[restore]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Puzzle/DBSchema.php">
+    <InvalidArgument>
+      <code><![CDATA[DB::raw("SELECT * FROM  $dataname.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table'")]]></code>
+      <code><![CDATA[DB::raw($qr)]]></code>
+      <code><![CDATA[DB::raw($qrStr)]]></code>
+      <code><![CDATA[DB::raw('SELECT TABLE_NAME, TABLE_TYPE FROM INFORMATION_SCHEMA.TABLES ORDER BY TABLE_NAME')]]></code>
+    </InvalidArgument>
+    <NoValue>
+      <code><![CDATA[return $data;]]></code>
+    </NoValue>
+    <UndefinedMagicMethod>
+      <code><![CDATA[DB::collection($table)]]></code>
+      <code><![CDATA[getMongoClient]]></code>
+      <code><![CDATA[getMongoDB]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Puzzle/Puzzle.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected static function getFacadeAccessor()]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Puzzle/Requests/MenuRequest.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Rule::unique('menus', 'name')->ignore($this->id)]]></code>
+    </ImplicitToStringCast>
+    <InvalidReturnType>
+      <code><![CDATA[array]]></code>
+    </InvalidReturnType>
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->id]]></code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/Puzzle/Requests/PageRequest.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Rule::unique('agent_settings', 'name')->ignore($this->id)]]></code>
+    </ImplicitToStringCast>
+    <InvalidReturnType>
+      <code><![CDATA[array]]></code>
+    </InvalidReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function messages()]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->id]]></code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/Puzzle/Requests/PermissionRequest.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Rule::unique('permissions', 'display_name')->ignore($this->id)]]></code>
+      <code><![CDATA[Rule::unique('permissions', 'name')->ignore($this->id)]]></code>
+    </ImplicitToStringCast>
+    <InvalidReturnType>
+      <code><![CDATA[array]]></code>
+    </InvalidReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function messages()]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->id]]></code>
+    </UndefinedThisPropertyFetch>
+  </file>
+  <file src="src/Puzzle/Requests/RoleRequest.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Rule::unique('roles', 'display_name')->ignore($this->id)]]></code>
+      <code><![CDATA[Rule::unique('roles', 'name')->ignore($this->id)]]></code>
+    </ImplicitToStringCast>
+    <InvalidReturnType>
+      <code><![CDATA[array]]></code>
+    </InvalidReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function messages()]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->id]]></code>
+    </UndefinedThisPropertyFetch>
+  </file>
+</files>
