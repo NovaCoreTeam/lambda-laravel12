@@ -272,6 +272,11 @@
       <code><![CDATA[getMongoDB]]></code>
     </UndefinedMagicMethod>
   </file>
+  <file src="src/Puzzle/Models/Role.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[withTrashed]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Puzzle/Puzzle.php">
     <MissingOverrideAttribute>
       <code><![CDATA[protected static function getFacadeAccessor()]]></code>
