@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 trait CustomUtils
 {
 
-    public function customCallTrigger($action, $data,$subdata=null,$parentID,$status)
+    public function customCallTrigger($action, $data, $parentID, $status, $subdata = null)
     {
         switch ($action) {
             case 'beforeInsertDeleteOld':
