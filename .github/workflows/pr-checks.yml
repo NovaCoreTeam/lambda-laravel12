@@ -1,0 +1,32 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, gd, curl, pdo, mongodb
+          coverage: none
+
+      - name: Validate composer.json/composer.lock
+        run: composer validate --strict --no-check-publish
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHP syntax lint
+        run: find src -name '*.php' -print0 | xargs -0 -n1 -P4 php -l
+
+      - name: Security audit
+        run: composer audit

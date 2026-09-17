@@ -2,14 +2,12 @@
 
 namespace Lambda\Dataform;
 
-use App\Helpers\ConfigHelper;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use CURLFile;
 use Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
 use Lambda\Dataform\Helper;
 
 trait FormEmail
@@ -79,7 +77,7 @@ trait FormEmail
             $body = $email->body;
             foreach ($data as $key => $value) {
 
-                if (str_contains($value, 'uploaded')) {
+                if (is_string($value) && str_contains($value, 'uploaded')) {
                     $value = str_replace(' ', '%20', $value);
                     $value = str_replace('\\', '/', $value);
                     $url=$config->host.$value;
@@ -126,7 +124,7 @@ trait FormEmail
                     } else {
                         Log::error('EMAIL - validation error:' . $t);
                     }
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     Log::error('EMAIL - Email error: ' . $e);
                 }
             }

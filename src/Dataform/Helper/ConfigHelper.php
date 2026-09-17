@@ -4,7 +4,6 @@ namespace Lambda\Dataform\Helper;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use function MongoDB\BSON\toJSON;
 
 class ConfigHelper
 {

@@ -8,7 +8,7 @@
       "email": "tseegii.it@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
@@ -25,16 +25,15 @@
     }
   },
   "require": {
-    "lcobucci/jwt": "^4.1.4",
-    "tymon/jwt-auth": "dev-develop",
+    "php": "^8.2",
+    "laravel/framework": "^12.0",
+    "lcobucci/jwt": "^4.1.4|^5.0",
+    "tymon/jwt-auth": "^2.3",
     "intervention/image": "^2.5.1",
     "maatwebsite/excel": "^3.1",
-    "wisembly/elephant.io": "^3.3",
-    "barryvdh/laravel-dompdf": "2.0.0",
+    "elephantio/elephant.io": "^5.3",
+    "barryvdh/laravel-dompdf": "^3.1",
     "rap2hpoutre/fast-excel": "^3.2",
-    "jenssegers/mongodb": "^v3.8.5"
-  },
-  "replace": {
-    "lcobucci/jwt": "*"
+    "mongodb/laravel-mongodb": "^5.0"
   }
 }

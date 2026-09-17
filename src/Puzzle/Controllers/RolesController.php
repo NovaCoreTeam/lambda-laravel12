@@ -9,8 +9,6 @@ use Lambda\Puzzle\Requests\RoleRequest;
 use Lambda\Puzzle\Models\Permission;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Request;
-
 use Illuminate\Support\Facades\Config;
 
 class RolesController extends Controller

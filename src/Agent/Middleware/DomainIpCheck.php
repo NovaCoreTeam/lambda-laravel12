@@ -25,7 +25,7 @@ class DomainIpCheck
     {
         $blockedHosts = ['anikill.win'];
         $blockedIps = ['202.9.40.186', '2a01:4f8:e0:1560::2'];
-        $requestHost = parse_url($request->headers->get('origin'), PHP_URL_HOST);
+        $requestHost = parse_url($request->headers->get('origin', ''), PHP_URL_HOST);
         $requestIp = $this->getRealIpAddr();
 
 //        $ref = $request->headers->get('referer');
