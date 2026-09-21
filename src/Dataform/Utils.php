@@ -3,6 +3,7 @@
 namespace Lambda\Dataform;
 
 use Illuminate\Support\Facades\DB;
+use Lambda\Support\Driver;
 
 trait Utils
 {
@@ -107,11 +108,7 @@ trait Utils
         if(isset($this->dbSchema->triggers->cache_clear_url) && $this->dbSchema->triggers->cache_clear_url) {
             $config = null;
 
-            if (env('DB_CONNECTION') == 'pgsql') {
-                $config = DB::table('public.api_config')->where('code', '10011')->first();
-            } else {
-                $config = DB::table('api_config')->where('code', '10011')->first();
-            }
+            $config = DB::table(Driver::qualify('api_config'))->where('code', '10011')->first();
             //dd($config->url.$this->dbSchema->triggers->cache_clear_url);
             if ($config) {
                 try {

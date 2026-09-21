@@ -8,6 +8,8 @@ class LambdaServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/config/lambda-config.php', 'lambda');
+
         $this->app->singleton(Lambda::class, function () {
             return new Lambda();
         });

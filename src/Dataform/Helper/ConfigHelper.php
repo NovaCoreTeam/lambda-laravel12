@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use function MongoDB\BSON\toJSON;
+use Lambda\Support\Driver;
 
 class ConfigHelper
 {
@@ -13,11 +14,7 @@ class ConfigHelper
         //Get the data from settings table
             $config = null;
             try {
-                if (env('DB_CONNECTION') == 'pgsql') {
-                    $config = DB::table('public.api_config')->where('code', '10012')->first();
-                } else {
-                    $config = DB::table('api_config')->where('code', '10012')->first();
-                }
+                $config = DB::table(Driver::qualify('api_config'))->where('code', '10012')->first();
             }
             catch(\Exception $ex)
             {
