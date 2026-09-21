@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use mysql_xdevapi\Exception;
 use Lambda\Dataform\Helper;
+use Lambda\Support\Driver;
 
 trait FormEmail
 {
@@ -42,11 +43,7 @@ trait FormEmail
 
             $config = null;
             try {
-                if (env('DB_CONNECTION') == 'pgsql') {
-                    $config = DB::table('public.api_config')->where('code', '10013')->first();
-                } else {
-                    $config = DB::table('api_config')->where('code', '10013')->first();
-                }
+                $config = DB::table(Driver::qualify('api_config'))->where('code', '10013')->first();
             }
             catch(\Exception $ex)
             {

@@ -3,6 +3,7 @@
 namespace Lambda\Datagrid;
 
 use Illuminate\Support\Facades\DB;
+use Lambda\Support\Driver;
 
 trait Trigger
 {
@@ -74,11 +75,7 @@ trait Trigger
         {
             $config = null;
 
-            if (env('DB_CONNECTION') == 'pgsql') {
-                $config = DB::table('public.api_config')->where('code', '10011')->first();
-            } else {
-                $config = DB::table('api_config')->where('code', '10011')->first();
-            }
+            $config = DB::table(Driver::qualify('api_config'))->where('code', '10011')->first();
             if ($config) {
                 try {
                     if ($config->url && $config->auth_username

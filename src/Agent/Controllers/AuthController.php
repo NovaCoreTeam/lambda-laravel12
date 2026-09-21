@@ -58,7 +58,7 @@ class AuthController extends Controller
                     return response()->json(['status' => false, 'error' => 'Хэрэглэгч баталгаажаагүй байна'], 401);
                 }
             }
-            JWTAuth::factory()->setTTL(env('JWT_TTL', 60));
+            JWTAuth::factory()->setTTL(config('jwt.ttl', 60));
             $token = auth('api')->attempt($credentials);
         } catch (JWTException $e) {
             return response()->json(['status' => false, 'error' => 'Could not authenticate', 'exception' => $e->getMessage()], 500);
@@ -73,7 +73,7 @@ class AuthController extends Controller
                     'path' => $this->checkRole(auth()->user()->role),
                 ], 200)
                 ->header('Authotization', "bearer " . $token)
-                ->withCookie('token', auth()->getToken()->get(), env('JWT_TTL', 60), '/');
+                ->withCookie('token', auth()->getToken()->get(), config('jwt.ttl', 60), '/');
         }
     }
 

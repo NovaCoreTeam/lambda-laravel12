@@ -8,6 +8,7 @@ use DB;
 use Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Lambda\Support\Driver;
 
 class Dataform extends Facade
 {
@@ -297,7 +298,7 @@ class Dataform extends Facade
                                             if ($sForm->generateID) {
                                                 $sFormData[$sForm->identity] = (string)Uuid::generate();
                                             } else {
-                                                if (env('DB_CONNECTION') == 'sqlsrv') {
+                                                if (Driver::is('sqlsrv')) {
                                                     unset($sFormData['id']);
                                                 }
                                             }
@@ -316,7 +317,7 @@ class Dataform extends Facade
                         if ($sf->generateID) {
                             $sd[$sf->identity] = (string)Uuid::generate();
                         } else {
-                            if (env('DB_CONNECTION') == 'sqlsrv') {
+                            if (Driver::is('sqlsrv')) {
                                 unset($sd['id']);
                             }
                         }
@@ -354,7 +355,7 @@ class Dataform extends Facade
                                             if ($sForm->generateID) {
                                                 $sFormData[$sForm->identity] = (string)Uuid::generate();
                                             } else {
-                                                if (env('DB_CONNECTION') == 'sqlsrv') {
+                                                if (Driver::is('sqlsrv')) {
                                                     unset($sFormData['id']);
                                                 }
                                             }
@@ -483,7 +484,7 @@ class Dataform extends Facade
             $labelsWoInject = [];
             foreach ($labels as $l) {
 
-                if (env('DB_CONNECTION') == 'pgsql') {
+                if (Driver::is('pgsql')) {
                     // $pos=strpos($table, 'lambda');
 //                    if($pos!==false)
 //                    {
@@ -512,7 +513,7 @@ class Dataform extends Facade
             // dd($labelsWoInject);
             $label_column = join(",', ',", $labelsWoInject);
 
-            if (env('DB_CONNECTION') == 'sqlsrv') {
+            if (Driver::is('sqlsrv')) {
                 if (count($labelsWoInject) >= 2) {
                     // $pdo = DB::connection()->getPdo();
                     // $db_server_v = $pdo->getAttribute(constant('PDO::ATTR_SERVER_VERSION'));
@@ -524,7 +525,7 @@ class Dataform extends Facade
                 } else {
                     $label_column = '(' . $label_column . ')';
                 }
-            } elseif (env('DB_CONNECTION') == 'oracle') {
+            } elseif (Driver::is('oracle')) {
                 $label_column = '(' . $label_column . ')';
             } else {
                 $label_column = 'concat(' . $label_column . ')';
