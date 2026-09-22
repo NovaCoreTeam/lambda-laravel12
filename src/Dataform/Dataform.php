@@ -8,6 +8,7 @@ use DB;
 use Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 use Lambda\Support\Driver;
 
 class Dataform extends Facade
@@ -195,6 +196,10 @@ class Dataform extends Facade
             unset($data['id']);
         }
 
+        if (!array_key_exists('id', $data) && $this->idMustBeGenerated($this->dbSchema->model)) {
+            $data['id'] = (string) Str::ulid();
+        }
+
         $r = $qr->insert($data);
         if ($r) {
             isset($data['id']) ? $id = $data['id'] : $id = $data['id'] = DB::getPdo()->lastInsertId();
@@ -228,6 +233,42 @@ class Dataform extends Facade
         }
 
         return response()->json(['status' => false]);
+    }
+
+    /**
+     * Whether the target table's primary key needs an application-generated
+     * value before insert (true for a ULID/UUID varchar PK with no DB-side
+     * default) versus one the database assigns itself (auto-increment /
+     * IDENTITY, where the existing lastInsertId() fallback already works).
+     *
+     * MySQL/SQL Server projects built on Lambda historically use
+     * auto-increment PKs, so this only changes behaviour on Postgres, where
+     * a growing number of host apps (e.g. ULID-keyed schemas) have no
+     * column default at all for `id`.
+     */
+    private function idMustBeGenerated(string $table): bool
+    {
+        if (!Driver::isPgsql()) {
+            return false;
+        }
+
+        [$schema, $name] = Driver::splitTable($table);
+
+        $column = DB::selectOne(
+            "select column_default, is_identity
+               from information_schema.columns
+              where table_schema = ? and table_name = ? and column_name = 'id'",
+            [$schema, $name]
+        );
+
+        if (!$column) {
+            return false;
+        }
+
+        $hasDatabaseDefault = $column->is_identity === 'YES'
+            || (is_string($column->column_default) && str_contains($column->column_default, 'nextval('));
+
+        return !$hasDatabaseDefault;
     }
 
     public function updateSubs($subforms, $parentID, $status)
