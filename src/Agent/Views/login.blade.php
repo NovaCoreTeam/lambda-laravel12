@@ -11,7 +11,6 @@
     <title>{{ config('lambda.title') }}</title>
     <link rel="stylesheet" href="{{ mix('assets/lambda/css/vendor.css') }}">
     <link rel="stylesheet" href="{{ mix('assets/lambda/css/auth.css') }}">
-    <link rel="stylesheet" href="{{ mix('assets/lambda/css/components/auth.css') }}">
 </head>
 <body>
 <noscript>
