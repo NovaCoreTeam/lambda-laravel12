@@ -31,11 +31,9 @@
         </div>
     </div>
 </div>
-<script src="/assets/lambda/js/manifest.js"></script>
 <script>
     window.lambda = {!! json_encode(config('lambda')) !!};
 </script>
-<script src="{{ mix('assets/lambda/js/vendor.js') }}"></script>
-<script src="{{ mix('assets/lambda/js/auth.js') }}"></script>
+<script type="module" src="{{ mix('assets/lambda/js/auth.js') }}"></script>
 </body>
 </html>

@@ -20,10 +20,7 @@
 <body>
 <noscript>To run this application, JavaScript is required to be enabled.</noscript>
 @yield('app')
-<script src="{{ mix('assets/lambda/js/manifest.js') }}"></script>
-<script src="{{ mix('assets/lambda/js/vendor.js') }}"></script>
-<script src="{{ mix('assets/lambda/js/datagrid-vendor.js') }}"></script>
-<script src="{{ mix('assets/lambda/js/paper.js') }}"></script>
+<script type="module" src="{{ mix('assets/lambda/js/paper.js') }}"></script>
 <script>
     window.app_logo = "{{$TemplateHelper->logo}}";
 </script>

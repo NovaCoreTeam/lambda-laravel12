@@ -40,20 +40,19 @@
         window.lambda = {!! json_encode(config('lambda')) !!};
     </script>
 
-    <script src="{{ mix('assets/lambda/js/moqup.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/dataform.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/dataform-builder.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/moqup.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/dataform.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/dataform-builder.js') }}"></script>
 
-    <script src="{{ mix('assets/lambda/js/datagrid-vendor.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/datagrid.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/datagrid-builder.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datagrid.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datagrid-builder.js') }}"></script>
 
-    {{--    <script src="{{ mix('assets/lambda/js/report.js') }}"></script>--}}
-    {{--    <script src="{{ mix('assets/lambda/js/report-builder.js') }}"></script>--}}
+    {{--    <script type="module" src="{{ mix('assets/lambda/js/report.js') }}"></script>--}}
+    {{--    <script type="module" src="{{ mix('assets/lambda/js/report-builder.js') }}"></script>--}}
 
-    <script src="{{ mix('assets/lambda/js/datasource.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/krud.js') }}"></script>
-    <script src="{{ mix('assets/lambda/js/agent.js') }}"></script>
-{{--    <script src="{{ mix('assets/lambda/js/notification.js') }}"></script>--}}
-    <script src="{{ mix('assets/lambda/js/puzzle.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/datasource.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/krud.js') }}"></script>
+    <script type="module" src="{{ mix('assets/lambda/js/agent.js') }}"></script>
+{{--    <script type="module" src="{{ mix('assets/lambda/js/notification.js') }}"></script>--}}
+    <script type="module" src="{{ mix('assets/lambda/js/puzzle.js') }}"></script>
 @endpush
