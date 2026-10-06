@@ -1,4 +1,4 @@
-@extends('template::paper', ['title' => 'Тэнцвэртэй эцэг эх - CMS'])
+@extends('template::paper', ['title' => config('lambda.title', 'Lambda')])
 
 @push('styles')
     <link rel="stylesheet" href="/assets/lambda/fonts/flaticons/flaticons.css">
