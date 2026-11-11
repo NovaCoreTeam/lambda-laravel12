@@ -109,6 +109,12 @@ trait DBSchema
     {
         $data = [];
 
+        // Guard against injection via the table name: a bare identifier or
+        // one schema/database-qualified identifier (`schema.table`), nothing else.
+        if (! preg_match('/^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)?$/', (string) $table)) {
+            return $data;
+        }
+
         try {
             $driver = Driver::driver();
 

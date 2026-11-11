@@ -231,7 +231,7 @@ class Datagrid extends Facade
                             break;
                         case 'Tag':
                             $this->qr = $this->qr->where(function ($query) use ($s) {
-                                $query->whereRaw("find_in_set('" . request()->get($s->model) . "'," . $s->model . ")");
+                                $query->whereRaw('find_in_set(?,' . $s->model . ')', [request()->get($s->model)]);
                             });
                             break;
                         case 'Select':
@@ -311,7 +311,7 @@ class Datagrid extends Facade
             if ($filter['dateFrom'] != null && isset($filter['type'])) {
                 switch ($filter['type']) {
                     case 'equals':
-                        $this->qr = $this->qr->whereRaw('DATE(' . $model . ') = "' . $filter['dateFrom'] . '"');
+                        $this->qr = $this->qr->whereRaw('DATE(' . $model . ') = ?', [$filter['dateFrom']]);
                         break;
                     case 'notEqual':
                         $this->qr = $this->qr->where($model, '!=', $filter['dateFrom']);
@@ -341,7 +341,7 @@ class Datagrid extends Facade
                 return;
             }
 
-            if (strpos($filter['filter'], '*') !== false) {
+            if (strpos($filter['filter'] ?? '', '*') !== false) {
                 $value = str_replace('*', '%', $filter['filter']);
                 $this->qr = $this->qr->whereRaw('LOWER(' . $model . ') like ?', [strtolower($value)]);
             } else {

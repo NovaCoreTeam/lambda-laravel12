@@ -467,21 +467,23 @@ class Dataform extends Facade
         $labels = $relObj == false ? request()->fields : $relObj->fields;
 
         if ($relObj == false) {
-            $filter = request()->filter;
+            // NOTE: request()->filter used to be passed straight into whereRaw() below,
+            // letting any caller execute arbitrary SQL through this query param. Only
+            // the server-side relation config (below) is trusted with a raw filter.
+            $filter = false;
         } else {
             $filter = isset($relObj->filter) ? $relObj->filter : false;
         }
 
         $filterWithUser = null;
+        $filterWithUserBindings = [];
         if (isset($relObj->filterWithUser)) {
             $user = Auth::user()->toArray();
             foreach ($relObj->filterWithUser as $userFilter) {
                 if ($user[$userFilter["userField"]]) {
-                    if ($filterWithUser) {
-                        $filterWithUser = " and " . $userFilter['tableField'] . " = '" . $user[$userFilter["userField"]] . "'";
-                    } else {
-                        $filterWithUser = "" . $userFilter['tableField'] . " = '" . $user[$userFilter["userField"]] . "'";
-                    }
+                    $condition = $userFilter['tableField'] . " = ?";
+                    $filterWithUser = $filterWithUser ? $filterWithUser . " and " . $condition : $condition;
+                    $filterWithUserBindings[] = $user[$userFilter["userField"]];
                 }
             }
         }
@@ -597,8 +599,7 @@ class Dataform extends Facade
         }
 
         if ($filterWithUser) {
-            $qr->whereRaw($filterWithUser);
-//            $this->restrictInjection($qr, $filterWithUser);
+            $qr->whereRaw($filterWithUser, $filterWithUserBindings);
         }
 
 //        dd($qr->dd());

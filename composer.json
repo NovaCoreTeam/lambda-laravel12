@@ -8,7 +8,7 @@
             "email": "tseegii.it@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
@@ -26,10 +26,14 @@
     },
     "require": {
         "php": "^8.2",
+        "laravel/framework": "^12.0",
         "tymon/jwt-auth": "^2.3",
         "intervention/image": "^2.5.1",
         "maatwebsite/excel": "^3.1",
-        "barryvdh/laravel-dompdf": "^3.1",
-        "rap2hpoutre/fast-excel": "^5.11"
+        "barryvdh/laravel-dompdf": "^3.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.2",
+        "vimeo/psalm": "^6.17"
     }
 }

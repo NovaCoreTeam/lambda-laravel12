@@ -5,8 +5,6 @@ namespace Lambda\Notify\Controllers;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use ElephantIO\Client;
-use ElephantIO\Engine\SocketIO\Version2X;
 use Lambda\Notify\Notify;
 
 class NotifyController extends Controller
@@ -31,7 +29,7 @@ class NotifyController extends Controller
 from `notification_status` as `s`
 inner join `notifications` as `n` on `n`.`id` = `s`.`notif_id`
 inner join `users` as `u` on `u`.`id` = `n`.`sender`  COLLATE utf8_general_ci
-where `s`.`receiver_id` = '" . $user . "' order by `created_at` desc limit 30");
+where `s`.`receiver_id` = ? order by `created_at` desc limit 30", [$user]);
 
 
         return response()->json(['count' => $unseenCount, 'notifications' => $notifications]);
