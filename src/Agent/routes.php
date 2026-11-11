@@ -14,8 +14,10 @@ Route::namespace('Lambda\Agent\Controllers')
         $router->delete('users/forceDestroy/{id}', 'AgentController@forceDelete');
         $router->get('users/restore/{id}', 'AgentController@restore');
         $router->get('wizard', 'AgentController@wizard')->middleware(['jwt', 'web']);
-        $router->post('wizard/create', 'ProfileController@store')->middleware(['jwt', 'web']);
-        $router->get('profile/{id}', 'ProfileController@show')->middleware(['jwt', 'web']);
+        // wizard/create and profile/{id} used to point at Lambda\Agent\Controllers\ProfileController,
+        // a class that does not exist anywhere in this package's history — every hit was a 500 and
+        // `php artisan route:list` in host apps died on the reflection. Removed until a real
+        // controller exists (lambda-builder12 src/modules/agent/views/wizard.vue still posts to it).
     });
 
 // Authenticating
@@ -28,19 +30,13 @@ Route::namespace('Lambda\Agent\Controllers')
         $router->post('logout', 'AuthController@logout');
         $router->post('refresh', 'AuthController@refresh');
         $router->get('me', 'AuthController@me');
-        $router->get('check', 'RoleController@checkRoleAndRedirect');
         $router->post('password-reset', 'PasswordController@passwordReset');
         $router->post('send-forgot-mail', 'PasswordController@sendMail')->name('sendMail');
     });
 
-//Pages
-Route::namespace('Lambda\Agent\Controllers')
-    ->prefix('pages')
-    ->middleware(['jwt'])
-    ->group(function ($router) {
-        $router->get('/', 'PagesController@index');
-        $router->get('/moqup/{id}', 'PagesController@moqup');
-    });
+// `/pages` (PagesController) and `auth/check` (RoleController@checkRoleAndRedirect) were removed:
+// neither controller exists anywhere in this package, so the routes only ever 500ed and broke
+// `php artisan route:list` in host apps.
 
 //Agent routes
 Route::namespace('Lambda\Agent\Controllers')
